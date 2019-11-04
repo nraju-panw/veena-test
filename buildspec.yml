@@ -28,6 +28,7 @@ phases:
       - sudo docker service start        
       - docker build -t alpine:latest .
       - echo docker ls
+      - ls /var/lib/docker
       #- sudo docker service start 
       - docker ps
       - curl -k -u xuwang@paloaltonetworks.com:1234Scan@ --output ./twistcli http://54.193.112.152:8081/api/v1/util/twistcli

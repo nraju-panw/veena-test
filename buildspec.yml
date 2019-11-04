@@ -9,6 +9,9 @@ version: 0.2
 # TL_CONSOLE_URL:  The base URL for the console -- http://console.<my_company>.com:8083 -- without a trailing /
 
 phases:
+  install:
+    runtime-versions:
+      docker: 18
   build:
     commands:
       - echo Build started on `date`

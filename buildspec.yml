@@ -24,9 +24,11 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image..$IMAGE_TAG          
-      - docker pull alpine:latest
+      - echo Building the Docker image..$IMAGE_TAG  
+      - sudo docker service start        
+      - docker build -t alpine:latest .
       - echo docker ls
+      #- sudo docker service start 
       - docker ps
       - curl -k -u xuwang@paloaltonetworks.com:1234Scan@ --output ./twistcli http://54.193.112.152:8081/api/v1/util/twistcli
       - ls -la

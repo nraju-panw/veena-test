@@ -15,8 +15,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Building the Docker image..$IMAGE_TAG.          
-      - docker build -t alpine:latest .
+       echo Building the Docker image..$IMAGE_TAG.          
+       docker build -t alpine:latest .
   post_build:
     commands:
       - echo Build completed on `date`

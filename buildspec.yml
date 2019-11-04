@@ -7,7 +7,16 @@ version: 0.2
 # TL_USER:  The Twistlock user with the CI User role
 # TL_PASS:  The password for this user account
 # TL_CONSOLE_URL:  The base URL for the console -- http://console.<my_company>.com:8083 -- without a trailing /
-
+"environmentVariables": [
+      {
+        "name": "IMAGE_REPO_NAME",
+        "value": "alpine"
+      },
+      {
+        "name": "IMAGE_TAG",
+        "value": "latest"
+      }
+    ]
 phases:
   install:
     runtime-versions:
@@ -15,7 +24,7 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-       echo Building the Docker image..'$IMAGE_TAG'          
+       echo Building the Docker image..$IMAGE_TAG          
        docker build -t alpine:latest .
   post_build:
     commands:

@@ -35,3 +35,5 @@ phases:
       - echo Scanning with twistcli
       - ./twistcli images scan --details -address http://54.193.112.152:8081 -u xuwang@paloaltonetworks.com -p 1234Scan@ alpine:latest
   post_build:
+    commands:
+      - echo Build completed on `date`

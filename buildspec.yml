@@ -28,27 +28,19 @@ phases:
        docker build -t alpine:latest .
        echo docker ls
        docker ps
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - docker ps
-      - echo Downloading twistcli
-      - curl -k -u xuwang@paloaltonetworks.com:1234Scan@ --output ./twistcli http://54.193.112.152:8081/api/v1/util/twistcli
+       curl -k -u xuwang@paloaltonetworks.com:1234Scan@ --output ./twistcli http://54.193.112.152:8081/api/v1/util/twistcli
       - ls -la
       - chmod +x ./twistcli
       - ls -la
       - echo Scanning with twistcli
-      
+      ./twistcli images scan --details -address http://54.193.112.152:8081 -u xuwang@paloaltonetworks.com -p 1234Scan@ alpine:latest
+  post_build: 
       # Run the scan with twistcli, providing detailed results in CodeBuild and
       # pushing the results to the Twistlock console.
       # --details returns all vulnerabilities & compliance issues rather than just summaries.
       # -address points to our Twistlock console
       # -u and -p provide credentials for the console.  These creds only need the CI User role.
       # Finally, we provide the name of the image we built with 'docker build', above.
-      - sudo service docker start
-      - docker ps 
-      - ps aux | grep docker | grep daemon  
-      - ./twistcli images scan --details -address http://54.193.112.152:8081 -u xuwang@paloaltonetworks.com -p 1234Scan@ alpine:latest
 
       # Add --vulnerability-threshold and/or --compliance-threshold to this command to
       # fail builds based on the thresholds.

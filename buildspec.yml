@@ -33,6 +33,7 @@ phases:
       # -address points to our Twistlock console
       # -u and -p provide credentials for the console.  These creds only need the CI User role.
       # Finally, we provide the name of the image we built with 'docker build', above.
+      - docker ps 
       - ps aux | grep docker | grep daemon  
       - ./twistcli images scan --details -address http://54.193.112.152:8081 -u xuwang@paloaltonetworks.com -p 1234Scan@ alpine:latest
 

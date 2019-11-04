@@ -25,7 +25,6 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image..$IMAGE_TAG  
-      - sudo docker service start        
       - docker build -t alpine:latest .
       - echo docker ls
       - ls /var/lib/docker

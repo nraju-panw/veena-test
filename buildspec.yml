@@ -7,28 +7,6 @@ version: 0.2
 # TL_USER:  The Twistlock user with the CI User role
 # TL_PASS:  The password for this user account
 # TL_CONSOLE_URL:  The base URL for the console -- http://console.<my_company>.com:8083 -- without a trailing /
-"environmentVariables": [
-      {
-        "name": "IMAGE_REPO_NAME",
-        "value": "alpine"
-      },
-      {
-        "name": "IMAGE_TAG",
-        "value": "latest"
-      },
-      {
-        "name": "TL_USER",
-        "value": "xuwang@paloaltonetworks.com"
-      },
-      {
-        "name": "TL_PASS",
-        "value": "1234Scan@"
-      },
-      {
-        "name": "TL_CONSOLE_URL",
-        "value": "http://54.193.112.152:8081"
-      }
-    ]
  phases:
   install:
     runtime-versions:

@@ -15,11 +15,11 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image..$IMAGE_TAG  
-      - docker build -t myApp:latest .
+      - docker build -t myapp:latest .
   post_build:
     commands:
       - echo Build completed on `date`
-      - curl -k -u xuwang@paloaltonetworks.com:1234Scan@ --output ./twistcli http://54.193.112.152:8081/api/v1/util/twistcli
+      - curl -k -u xuwang@paloaltonetworks.com:$TL_PASS --output ./twistcli http://54.193.112.152:8081/api/v1/util/twistcli
       - ls -la
       - chmod +x ./twistcli
       - ls -la

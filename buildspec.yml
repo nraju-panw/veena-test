@@ -15,9 +15,21 @@ version: 0.2
       {
         "name": "IMAGE_TAG",
         "value": "latest"
+      },
+      {
+        "name": "TL_USER",
+        "value": "xuwang@paloaltonetworks.com"
+      },
+      {
+        "name": "TL_PASS",
+        "value": "1234Scan@"
+      },
+      {
+        "name": "TL_CONSOLE_URL",
+        "value": "http://54.193.112.152:8081"
       }
     ]
-phases:
+ phases:
   install:
     runtime-versions:
       docker: 18
@@ -26,9 +38,6 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image..$IMAGE_TAG  
       - docker build -t alpine:latest .
-      - echo dk ls
-      - ls /var/lib/docker
-      - docker ps
   post_build:
     commands:
       - echo Build completed on `date`
@@ -38,3 +47,7 @@ phases:
       - ls -la
       - echo Scanning with twistcli
       - ./twistcli images scan --details -address http://54.193.112.152:8081 -u xuwang@paloaltonetworks.com -p 1234Scan@ alpine:latest
+#artifacts:
+  #files:
+    #- target/my-app-1.0-SNAPSHOT.jar
+    #- appspec.yml

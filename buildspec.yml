@@ -23,7 +23,7 @@ phases:
       - ls -la
       - chmod +x ./twistcli
       - ls -la
-      - echo Scanning with twistcli
+      - echo Scanning with twistcli $TL_PASS $TL_USER
       - ./twistcli images scan --details -address http://54.193.112.152:8081 -u $TL_USER -p $TL_PASS myapp:latest
 #artifacts:
   #files:

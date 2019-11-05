@@ -7,7 +7,7 @@ version: 0.2
 # TL_USER:  The Twistlock user with the CI User role
 # TL_PASS:  The password for this user account
 # TL_CONSOLE_URL:  The base URL for the console -- http://console.<my_company>.com:8083 -- without a trailing /
- phases:
+phases:
   install:
     runtime-versions:
       docker: 18

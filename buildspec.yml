@@ -24,7 +24,7 @@ phases:
       - chmod +x ./twistcli
       - ls -la
       - echo Scanning with twistcli
-      - ./twistcli images scan --details -address http://54.193.112.152:8081 -u xuwang@paloaltonetworks.com -p 1234Scan@ myapp:latest
+      - ./twistcli images scan --details -address http://54.193.112.152:8081 -u $TL_USER -p $TL_PASS myapp:latest
 #artifacts:
   #files:
     #- target/my-app-1.0-SNAPSHOT.jar

@@ -37,7 +37,7 @@ version: 0.2
     commands:
       - echo Build started on `date`
       - echo Building the Docker image..$IMAGE_TAG  
-      - docker build -t alpine:latest .
+      - docker build -t myApp:latest .
   post_build:
     commands:
       - echo Build completed on `date`

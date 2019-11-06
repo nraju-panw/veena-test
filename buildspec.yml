@@ -24,7 +24,7 @@ phases:
       - chmod +x ./twistcli
       - ls -la
       - echo Scanning with twistcli $TL_PASS $TL_USER
-      - ./twistcli images scan --details -address $TL_CONSOLE_URL -u $TL_USER -p $TL_PASS --vulnerability-threshold $value $IMAGE_REPO_NAME:IMAGE_TAG 
+      - ./twistcli images scan --details -address $TL_CONSOLE_URL -u $TL_USER -p $TL_PASS --vulnerability-threshold $value $IMAGE_REPO_NAME:$IMAGE_TAG 
 #artifacts:
   #files:
     #- target/my-app-1.0-SNAPSHOT.jar

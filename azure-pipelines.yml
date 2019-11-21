@@ -1,8 +1,5 @@
 # Starter pipeline
-- task: iacScan@1
-  inputs:
-    fname: 'cft.json'
-    High: '1'
+
 
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
@@ -15,6 +12,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: iacScan@1
+  inputs:
+    fname: 'cft.json'
+    High: '1'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 

@@ -12,6 +12,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: iacScan@1
+  inputs:
+    fname: 'cft.json'
+    High: '1'
 
 - script: echo Hello, world!
   displayName: 'Run a one-line script'

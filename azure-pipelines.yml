@@ -17,7 +17,7 @@ steps:
 
 - task: iacScan@1
   inputs:
-    fname: 'cft.json'
+    fname: $(Pipeline.Workspace)/PutMyCodeHere
     High: '1'
 
 - script: echo Hello, world!

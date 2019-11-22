@@ -1,6 +1,7 @@
 # Starter pipeline
 
 
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -15,7 +16,13 @@ steps:
 - checkout: self
   path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
-
+- task: iacScan@1
+  inputs:
+    fname: 'test.tf'
+    High: '1'
+    Medium: '1'
+    Low: '1'
+    Operator: 'or'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 

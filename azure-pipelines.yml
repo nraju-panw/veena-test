@@ -22,13 +22,13 @@ steps:
     Contents: |
       **/*
       !config.*
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Pipeline.Workspace)'
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    rootFolderOrFile: '$(Pipeline.Workspace)'#(Build.BinariesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/test.zip'
+    archiveFile: '$(Pipeline.Workspace)/test.zip'#Build.ArtifactStagingDirectory)/test.zip'
     replaceExistingArchive: true
    
 - task: iacScan@1

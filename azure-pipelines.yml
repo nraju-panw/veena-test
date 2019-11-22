@@ -33,7 +33,7 @@ steps:
 
 - task: ExtractFiles@1
   inputs:
-     archiveFilePatterns: '*.zip'
+     archiveFilePatterns: 'test.zip'
      destinationFolder: '.'
      cleanDestinationFolder: true
 - task: iacScan@1

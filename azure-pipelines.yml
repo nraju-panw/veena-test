@@ -22,6 +22,7 @@ steps:
     Contents: |
       **/*
       !config.*
+      !.git/*/**
     TargetFolder: '$(Pipeline.Workspace)'
 - task: ArchiveFiles@2
   inputs:

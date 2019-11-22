@@ -19,6 +19,9 @@ steps:
   inputs:
     fname: 'test.tf'
     High: '1'
+    Medium: '0'
+    Low: '0'
+    Operator: 'or'
 
 - script: echo Hello, world!
   displayName: 'Run a one-line script'

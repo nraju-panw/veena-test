@@ -13,12 +13,26 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- checkout: self
-  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
+#- checkout: self
+#  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
+
+- task: CopyFiles@2
+  inputs:
+    Contents: |
+      **/*
+      !config.*
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
 - task: iacScan@1
   inputs:
-    fname: 'test.tf'
+    fname: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     High: '1'
     Medium: '1'
     Low: '1'

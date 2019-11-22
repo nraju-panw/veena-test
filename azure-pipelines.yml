@@ -30,9 +30,10 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
+   
 - task: iacScan@1
   inputs:
-    fname: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    fname: '*.zip'
     High: '1'
     Medium: '1'
     Low: '1'

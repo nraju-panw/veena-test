@@ -28,12 +28,12 @@ steps:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/test.zip'
     replaceExistingArchive: true
    
 - task: iacScan@1
   inputs:
-    fname: '*.zip'
+    fname: 'test.zip'
     High: '1'
     Medium: '1'
     Low: '1'

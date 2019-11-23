@@ -23,11 +23,11 @@ steps:
     Contents: |
       *.tf
       !.git/*/**
-    TargetFolder: '/home/scan'
+    TargetFolder: '$(build.artifactstagingdirectory)'
    
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '/home/scan'#(Build.BinariesDirectory)'
+    rootFolderOrFile: '$(build.artifactstagingdirectory)'#(Build.BinariesDirectory)'
     includeRootFolder: false
     archiveType: 'zip'
     archiveFile: '$(Pipeline.Workspace)/test.zip'#Build.ArtifactStagingDirectory)/test.zip'

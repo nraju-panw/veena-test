@@ -24,10 +24,10 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Agent.BuildDirectory)'#$(build.artifactstagingdirectory)'#(Build.BinariesDirectory)'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'#$(build.artifactstagingdirectory)'#(Build.BinariesDirectory)'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Agent.BuildDirectory)/test.zip'#Build.ArtifactStagingDirectory)/test.zip'
+    archiveFile: '$(System.DefaultWorkingDirectory)/test.zip'#Build.ArtifactStagingDirectory)/test.zip'
     replaceExistingArchive: true
 - task: iacScan@1
   inputs:

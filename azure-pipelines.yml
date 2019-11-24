@@ -7,30 +7,27 @@
 # https://aka.ms/yaml
 
 trigger:
-- azure-pipelines
-
+ branches:
+    include:
+    - azure-pipelines
+ paths:
+    include:
+    - '*.tf'
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-#- checkout: self
+- checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: |
-      *.tf
-      !.git/*/**
-    TargetFolder: '$(build.artifactstagingdirectory)'
-   
+
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(build.artifactstagingdirectory)'#(Build.BinariesDirectory)'
+    rootFolderOrFile: '$(Agent.BuildDirectory)'#$(build.artifactstagingdirectory)'#(Build.BinariesDirectory)'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Pipeline.Workspace)/test.zip'#Build.ArtifactStagingDirectory)/test.zip'
+    archiveFile: '$(Agent.BuildDirectory)/test.zip'#Build.ArtifactStagingDirectory)/test.zip'
     replaceExistingArchive: true
 - task: iacScan@1
   inputs:

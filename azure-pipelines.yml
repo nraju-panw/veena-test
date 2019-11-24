@@ -22,13 +22,6 @@ steps:
 
 
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'#$(build.artifactstagingdirectory)'#(Build.BinariesDirectory)'
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(System.DefaultWorkingDirectory)/test.zip'#Build.ArtifactStagingDirectory)/test.zip'
-    replaceExistingArchive: true
 - task: iacScan@1
   inputs:
     fname: '$(System.DefaultWorkingDirectory)'

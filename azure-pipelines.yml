@@ -31,7 +31,7 @@ steps:
     replaceExistingArchive: true
 - task: iacScan@1
   inputs:
-    fname: 'test.zip'
+    fname: '$(System.DefaultWorkingDirectory)'
     High: '1'
     Medium: '1'
     Low: '1'

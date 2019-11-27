@@ -22,7 +22,6 @@ steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
-- 
 - task: iacScan@1
   inputs:
     fname: '$(Pipeline.Workspace)/scan' #$(System.DefaultWorkingDirectory)'

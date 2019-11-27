@@ -24,9 +24,9 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Pipeline.Workspace)/scan'
+    SourceFolder: '$(Pipeline.Workspace)'
     Contents: '*.tf'
-    TargetFolder: '$(Pipeline.Workspace)/scan'
+    TargetFolder: '$(Pipeline.Workspace)'
 
 - task: iacScan@1
   inputs:

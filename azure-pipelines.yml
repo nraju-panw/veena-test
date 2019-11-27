@@ -30,7 +30,7 @@ steps:
 
 - task: iacScan@1
   inputs:
-    fname: '$(Pipeline.Workspace)' #$(System.DefaultWorkingDirectory)'
+    fname: '$(Pipeline.Workspace)/scan' #$(System.DefaultWorkingDirectory)'
     High: '1'
     Medium: '1'
     Low: '1'

@@ -13,6 +13,8 @@ trigger:
  paths:
     include:
     - '*.tf'
+    exclude:
+    - '.git'
 pool:
   vmImage: 'ubuntu-latest'
 

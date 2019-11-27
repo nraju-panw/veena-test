@@ -22,12 +22,7 @@ steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Pipeline.Workspace)'
-    Contents: '*.tf'
-    TargetFolder: '$(Pipeline.Workspace)'
-
+- 
 - task: iacScan@1
   inputs:
     fname: '$(Pipeline.Workspace)/scan' #$(System.DefaultWorkingDirectory)'

@@ -21,14 +21,15 @@ pool:
 steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
-
-- task: iacScan@1
+ 
+-- task: iacScan@1
   inputs:
-    fname: '$(System.DefaultWorkingDirectory)/scan'#$(Pipeline.Workspace)/scan' #$(System.DefaultWorkingDirectory)'
+    Path: '$(System.DefaultWorkingDirectory)/scan'
     High: '1'
-    Medium: '1'
-    Low: '1'
+    Medium: '0'
+    Low: '0'
     Operator: 'or'
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 

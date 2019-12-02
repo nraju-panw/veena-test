@@ -20,14 +20,13 @@ steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
-task: iacScan@1
+- task: iacScan@1
   inputs:
     Path: '$(System.DefaultWorkingDirectory)/scan'
     High: '1'
     Medium: '0'
     Low: '0'
     Operator: 'or'
-
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml

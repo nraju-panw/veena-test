@@ -22,7 +22,7 @@ steps:
 
 - task: iacScan@1
   inputs:
-    Path: '$(System.DefaultWorkingDirectory)/scan'
+    Path: 'scan'
     prismaCloudService: 'PrismaCloudService'
     High: '1'
     Medium: '0'

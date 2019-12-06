@@ -21,14 +21,7 @@ pool:
 steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
-- task: iacScan@1
-  inputs:
-    Path: 'scan'
-    prismaCloudService: 'PrismaService'
-    High: '0'
-    Medium: '3'
-    Low: '0'
-    Operator: 'or'
+
 - task: iacScan@1
   inputs:
     Path: 'scan'

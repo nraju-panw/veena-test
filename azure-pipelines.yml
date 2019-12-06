@@ -2,6 +2,7 @@
 
 
 
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -28,6 +29,14 @@ steps:
     prismaCloudService: 'PrismaIacScan'
     High: '1'
     Medium: '0'
+    Low: '0'
+    Operator: 'or'
+- task: iacScan@1
+  inputs:
+    Path: 'scan'
+    prismaCloudService: 'PrismaService'
+    High: '1'
+    Medium: '3'
     Low: '0'
     Operator: 'or'
 - script: |

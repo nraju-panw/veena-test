@@ -2,6 +2,7 @@
 
 
 
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -22,21 +23,14 @@ steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(Pipeline.Workspace)'
-    Contents: '*.tf'
-    TargetFolder: '$(Pipeline.Workspace)'
-
 - task: iacScan@1
   inputs:
-    fname: '$(Pipeline.Workspace)' #$(System.DefaultWorkingDirectory)'
+    Path: 'scan'
+    prismaCloudService: 'PrismaIacScan'
     High: '1'
-    Medium: '1'
-    Low: '1'
+    Medium: '0'
+    Low: '0'
     Operator: 'or'
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.

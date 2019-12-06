@@ -31,14 +31,7 @@ steps:
     Medium: '0'
     Low: '0'
     Operator: 'or'
-- task: iacScan@1
-  inputs:
-    Path: 'scan'
-    prismaCloudService: 'PrismaService'
-    High: '1'
-    Medium: '3'
-    Low: '0'
-    Operator: 'or'
+
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml

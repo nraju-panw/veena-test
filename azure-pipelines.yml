@@ -26,7 +26,7 @@ steps:
 - task: iacScan@1
   inputs:
     Path: 'scan'
-    prismaCloudService: 'PrismaService'
+    prismaCloudService: 'PrismaIacScan'
     High: '1'
     Medium: '0'
     Low: '0'

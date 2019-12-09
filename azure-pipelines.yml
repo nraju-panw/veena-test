@@ -28,7 +28,7 @@ steps:
     Path: 'scan'
     prismaCloudService: 'PrismaService'
     High: '1'
-    Medium: '3'
+    Medium: '5'
     Low: '1'
     Operator: 'or'
 

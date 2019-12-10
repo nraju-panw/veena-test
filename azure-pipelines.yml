@@ -1,9 +1,6 @@
 # Starter pipeline
 
 
-
-
-
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -32,7 +29,7 @@ steps:
     Medium: '3'
     Low: '1'
     Operator: 'or'
-    - task: PublishPipelineArtifact@1
+- task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
     artifact: 'scanResults'

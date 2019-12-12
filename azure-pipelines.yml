@@ -24,7 +24,7 @@ steps:
 - task: iacScan@1
   inputs:
     Path: 'scan'
-    prismaCloudService: 'PrismaService'
+    prismaCloudService: 'Prisma Cloud IacScan'
     High: '1'
     Medium: '6'
     Low: '1'
@@ -34,7 +34,7 @@ steps:
 
   inputs:
     scanType: 'images'
-    twistlockService: 'twistlockservice'
+    twistlockService: 'Prisma Cloud VulnScan'
     vulnerabilityThreshold: 'high'
     onlyFixed: false
     gracePeriod: '0'

@@ -21,6 +21,15 @@ steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
+- task: twistcli-scan@1
+  inputs:
+    scanType: 'images'
+    twistlockService: 'twistlockservice'
+    vulnerabilityThreshold: 'high'
+    onlyFixed: false
+    gracePeriod: '0'
+    complianceThreshold: 'high'
+    artifact: 'alpine-latest'
 - task: iacScan@1
   inputs:
     Path: 'scan'
@@ -29,11 +38,7 @@ steps:
     Medium: '3'
     Low: '1'
     Operator: 'or'
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    artifact: 'scanResults'
-    publishLocation: 'pipeline'
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.

@@ -20,15 +20,6 @@ pool:
 steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
-- task: twistcli-scan@1
-  inputs:
-    scanType: 'images'
-    twistlockService: 'twistlockservice'
-    vulnerabilityThreshold: 'high'
-    onlyFixed: false
-    gracePeriod: '0'
-    complianceThreshold: 'high'
-    artifact: 'alpine:latest'
 
 - task: iacScan@1
   inputs:
@@ -38,6 +29,18 @@ steps:
     Medium: '3'
     Low: '1'
     Operator: 'or'
+
+- task: twistcli-scan@1
+
+  inputs:
+    scanType: 'images'
+    twistlockService: 'twistlockservice'
+    vulnerabilityThreshold: 'high'
+    onlyFixed: false
+    gracePeriod: '0'
+    complianceThreshold: 'high'
+    artifact: 'alpine:latest'
+
 
 
 - script: |

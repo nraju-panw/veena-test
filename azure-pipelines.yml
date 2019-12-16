@@ -2,6 +2,7 @@
 
 
 
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -21,7 +22,19 @@ pool:
 steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
-
+- task: DownloadFileshareArtifacts@1
+  inputs:
+    filesharePath: 'https://cdn.twistlock.com/releases/e50fc4d9/prisma_cloud_compute_edition_19_11_480.tar.gz  Type'
+    artifactName: 'twistlock'
+    downloadPath: '$(System.ArtifactsDirectory)'
+- task: UniversalPackages@0
+  inputs:
+    command: 'download'
+    downloadDirectory: '$(System.DefaultWorkingDirectory)'
+    feedsToUse: 'internal'
+    vstsFeed: '6ce92340-68b3-4024-b002-969c9e8a7bb8'
+    vstsFeedPackage: 'twistlock'
+    vstsPackageVersion: 'latest'
 - task: iacScan@1
   inputs:
     Path: 'scan'

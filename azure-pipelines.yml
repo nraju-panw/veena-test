@@ -27,14 +27,7 @@ steps:
     filesharePath: 'https://cdn.twistlock.com/releases/e50fc4d9/prisma_cloud_compute_edition_19_11_480.tar.gz  Type'
     artifactName: 'twistlock'
     downloadPath: '$(System.ArtifactsDirectory)'
-- task: UniversalPackages@0
-  inputs:
-    command: 'download'
-    downloadDirectory: '$(System.DefaultWorkingDirectory)'
-    feedsToUse: 'internal'
-    vstsFeed: '6ce92340-68b3-4024-b002-969c9e8a7bb8'
-    vstsFeedPackage: 'twistlock'
-    vstsPackageVersion: 'latest'
+
 - task: iacScan@1
   inputs:
     Path: 'scan'
@@ -43,7 +36,14 @@ steps:
     Medium: '6'
     Low: '1'
     Operator: 'or'
-
+- task: UniversalPackages@0
+  inputs:
+    command: 'download'
+    downloadDirectory: '$(System.DefaultWorkingDirectory)'
+    feedsToUse: 'internal'
+    vstsFeed: '6ce92340-68b3-4024-b002-969c9e8a7bb8'
+    vstsFeedPackage: 'twistlock'
+    vstsPackageVersion: '19.11'
 - task: twistcli-scan@1
 
   inputs:
@@ -54,14 +54,6 @@ steps:
     gracePeriod: '0'
     complianceThreshold: 'high'
     artifact: 'alpine:latest'
-- task: UniversalPackages@0
-  inputs:
-    command: 'download'
-    downloadDirectory: '$(System.DefaultWorkingDirectory)'
-    feedsToUse: 'internal'
-    vstsFeed: '6ce92340-68b3-4024-b002-969c9e8a7bb8'
-    vstsFeedPackage: 'https://cdn.twistlock.com/releases/e50fc4d9/prisma_cloud_compute_edition_19_11_480.tar.gz'
-    vstsPackageVersion: '19.11'
 
 
 - script: |

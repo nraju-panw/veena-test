@@ -22,11 +22,7 @@ pool:
 steps:
 - checkout: self
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
-- task: DownloadFileshareArtifacts@1
-  inputs:
-    filesharePath: 'https://cdn.twistlock.com/releases/e50fc4d9/prisma_cloud_compute_edition_19_11_480.tar.gz  Type'
-    artifactName: 'twistlock'
-    downloadPath: '$(System.ArtifactsDirectory)'
+
 
 - task: iacScan@1
   inputs:
@@ -36,6 +32,12 @@ steps:
     Medium: '6'
     Low: '1'
     Operator: 'or'
+
+- task: DownloadFileshareArtifacts@1
+  inputs:
+    filesharePath: 'https://cdn.twistlock.com/releases/e50fc4d9/prisma_cloud_compute_edition_19_11_480.tar.gz  Type'
+    artifactName: 'twistlock'
+    downloadPath: '$(System.ArtifactsDirectory)'
 - task: UniversalPackages@0
   inputs:
     command: 'download'

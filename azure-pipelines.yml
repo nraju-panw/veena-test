@@ -24,15 +24,15 @@ steps:
 #  path: PutMyCodeHere   # will checkout at $(Pipeline.Workspace)/PutMyCodeHere
 
 
-- task: iacScan@1
+
+- task: Prisma Cloud IaC Scan@1
   inputs:
     Path: 'scan'
-    prismaCloudService: 'Prisma Cloud IacScan'
+    prismaCloudService: 'Prisma Cloud IaC Scan'
     High: '1'
     Medium: '6'
     Low: '1'
     Operator: 'or'
-
 - task: DownloadFileshareArtifacts@1
   inputs:
     filesharePath: 'https://cdn.twistlock.com/releases/e50fc4d9/prisma_cloud_compute_edition_19_11_480.tar.gz  Type'

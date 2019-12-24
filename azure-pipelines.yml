@@ -26,6 +26,7 @@ steps:
 
 
 
+
 - task: Prisma Cloud IaC Scan@1
   inputs:
     Path: 'scan'
@@ -34,6 +35,7 @@ steps:
     Medium: '2'
     Low: '1'
     Operator: 'or'
+  
 
 - task: DownloadFileshareArtifacts@1
   inputs:

@@ -26,15 +26,15 @@ steps:
 
 
 
-
 - task: Prisma Cloud IaC Scan@1
   inputs:
-    Path: '/scan'
-    prismaCloudService: 'Prisma Cloud IaC Scan'
+    Path: 'scan'
+    prismaCloudService: 'PrismaIaCScan'
     High: '1'
-    Medium: '2'
+    Medium: '4'
     Low: '1'
     Operator: 'or'
+  
   
 
 - task: DownloadFileshareArtifacts@1
